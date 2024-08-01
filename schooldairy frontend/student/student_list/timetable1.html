@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href="timetable1.css">
+    <title>Timetable</title>
+</head>
+<body>
+    <script src="timetable1.js"></script>
+    <form>
+    <table border="n">
+    <tr class="a">
+        <th colspan="7">Class VI (Time-Table)</th>
+    </tr>
+    <tr class="b">
+        <th>Time</th>
+        <th>Monday Tuesday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        
+    </tr>
+    <tr>
+        <td>08-09AM</td>
+        <td><input type="text"id="Subject1"></td>
+        <td><input type="text"id="Subject2"></td>
+        <td><input type="text"id="Subject3"></td>
+        <td><input type="text"id="Subject4"></td>
+        <td><input type="text"id="Subject5"></td>
+        <td><input type="text"id="Subject6"></td>
+    </tr>
+    <tr>
+        <td>09-10AM</td>
+        <td><input type="text"id="Subject7"></td>
+        <td><input type="text"id="Subject8"></td>
+        <td><input type="text"id="Subject9"></td>
+        <td><input type="text"id="Subject10"></td>
+        <td><input type="text"id="Subject11"></td>
+        <td><input type="text"id="Subject12"></td>
+    </tr>
+    <tr>
+        <td>10-11AM</td>
+        <td><input type="text"id="Subject13"></td>
+        <td><input type="text"id="Subject14"></td>
+        <td><input type="text"id="Subject15"></td>
+        <td><input type="text"id="Subject16"></td>
+        <td><input type="text"id="Subject17"></td>
+        <td><input type="text"id="Subject18"></td>
+    </tr>
+    <tr class="c">
+        <td>11-12PM</td>
+        <td><input type="text"id="Subject19"></td>
+        <td><input type="text"id="Subject20"></td>
+        <td><input type="text"id="Subject21"></td>
+        <td><input type="text"id="Subject22"></td>
+        <td><input type="text"id="Subject23"></td>
+        <td><input type="text"id="Subject24"></td>
+    </tr>
+    <tr>
+        <td>12-01PM</td>
+        <td><input type="text"id="Subject25"></td>
+        <td><input type="text"id="Subject26"></td>
+        <td><input type="text"id="Subject27"></td>
+        <td><input type="text"id="Subject28"></td>
+        <td><input type="text"id="Subject29"></td>
+        <td rowspan="2"><button   onclick="createTable()" value="createTable" style="height: 40px; width: 170px; background-color:orange;">submit</button></td>
+        
+        
+    </tr>
+    <tr>
+        <td>01-02PM</td>
+        <td><input type="text"id="Subject30"></td>
+        <td><input type="text"id="Subject31"></td>
+        <td><input type="text"id="Subject32"></td>
+        <td><input type="text"id="Subject33"></td>
+        <td><input type="text"id="Subject34"></td>
+        
+    </tr>
+    </table>
+    <br><br><br><br><br><br><br>
+    <table id="myTable">
+        <thead>
+          
+          <tr class="b">
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+  
+      <script>
+        const data = JSON.parse(localStorage.getItem("timeTableList") || '[]');
+        const tableBody = document.querySelector("#myTable tbody");
+        data.forEach((item) => {
+          const row = document.createElement("tr");
+        console.log('data',item);
+          Object.values(item).forEach((value) => {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+          });
+          tableBody.appendChild(row);
+        });
+        
+      </script>
+</form>
+</body>
+</html>

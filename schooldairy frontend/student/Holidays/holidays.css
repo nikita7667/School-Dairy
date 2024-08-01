@@ -1,0 +1,30 @@
+.htwo {
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    color: white;
+    padding: 5px;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #53c40c;
+}
+table {
+    margin: 0 0 1.5em;
+    width: 100%;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-width: 1px 0 0 1px;
+    margin: 0 0 1.5em;
+    width: 100%;
+}
+.table, th, td {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    padding: 5px;
+}
+.main{
+    width: 900px;
+    margin-left: 300px;
+}

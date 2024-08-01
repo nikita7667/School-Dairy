@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Registration Form </title>
+    <link rel="stylesheet" href="register.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <script src="register.js"></script>
+  <div class="container">
+    <div class="title">School Diary Registration</div>
+  
+    <div class="content">
+      <form >
+                <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" id="Full_Name" placeholder="Enter your name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Student ID</span>
+            <input type="text" id="StudentID" placeholder="Enter your Student ID" required>
+          </div>
+          <!-- <div class="input-box">
+            <span class="details">General Register No.</span>
+            <input type="text" id="Gen_Register_no" placeholder="Enter your Gen. register no." required>
+          </div> -->
+          <div class="input-box">
+            <span class="details">Standard</span>
+            <input type="text" id="Standard" placeholder="Enter your Standard" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Division</span>
+            <input type="text" id="Division" placeholder="Enter your Division" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Address</span>
+            <input type="text" id="Address" placeholder="Enter your Address" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" id="Phone_Number" placeholder="Enter your number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Parents Name</span>
+            <input type="text" id="Parents_Name" placeholder="Enter your Parents name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Parents Relation with Children</span>
+            <input type="text" id="Relation_with_child" placeholder="Enter Relation with Children" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input id="email" type="text" placeholder="Enter your email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" id="password" placeholder="Enter your password" required>
+          </div>
+          <!-- <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" id="Confirm Password" placeholder="Confirm your password" required>
+          </div> -->
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" value="M" id="dot-1">
+          <input type="radio" name="gender" value="F" id="dot-2">
+          <input type="radio" name="gender" value="O" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="button" onclick="register()" value="Register">
+        </div>Already registered?
+        <a href="../Login/login.html">Login</a>
+
+      </form>
+     
+          
+    </div>
+  </div>
+
+</body>
+</html>

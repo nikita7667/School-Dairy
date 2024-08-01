@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../student_list/student_list.css">
+    <script src="https://kit.fontawesome.com/64af1aa0dd.js" crossorigin="anonymous"></script>
+    <title>Student List Panel</title>
+
+</head>
+
+<body>
+        
+    <div class="title">STUDENTS LIST</div>
+
+    <div class="containers">
+        <div class="content">
+            <div class="students">
+                <div class="title">
+                    <h2>STUDENTS LIST</h2>
+                    <!-- <a href="#" class="btn">View All </a> -->
+                </div>
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Student Id</th>
+                            <th>Name</th>
+                            <th>Division</th>
+                            <th>Class</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody"></tbody>
+                </table>
+
+                <script>
+                    const data = JSON.parse(localStorage.getItem("users1") || []);
+                    let tableBody = ''
+                    data.forEach((item) => {
+                        if (item.userType == 'S') {
+                            let html = "<tr>";
+                            html += "<td>" + item.StudentID + "</td>";
+                            html += "<td>" + item.Full_Name + "</td>";
+                            html += "<td>" + item.Division + "</td>";
+                            html += "<td>" + item.Standard + "</td>";
+                            html += "<td>" + item.Phone_Number + "</td>";
+
+                            html += "</tr>";
+                            tableBody += html;
+                        }
+                    });
+                    document.getElementById("tbody").innerHTML = tableBody;
+
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

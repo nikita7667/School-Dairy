@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Admin_Dashboard.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+    <!--  -->
+
+    <title>Admin Panel</title>
+    <script>
+
+        function handleSubmit() {
+            var class1 = document.getElementById('class1').value;
+            // const surname = document.getElementById('surname').value;
+            localStorage.setItem("CLASS", class1);
+            // localStorage.setItem("SURNAME", surname);
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+    <script src="Admin_Dashboard.js"></script>
+    <div class="sidebar-menu">
+        <div class="brand-name">
+            <h1>Admin Dashboard</h1>
+        </div>
+        <ul>
+
+            <li><img src="dashboard (2).png" alt="">&nbsp; <span>Dashboard</span> </li>
+            <li><img src="reading-book (1).png" alt="">&nbsp;<span>Student</span> </li>
+            <li><img src="teacher2.png" alt="">&nbsp;<span>Teacher</span></li>
+            <li><img src="school.png" alt="">&nbsp; <span>School</span></li>
+            <!-- <li><img src="payment.png" alt="">&nbsp; <span>Income</span></li> -->
+            <li><img src="help-web-button.png" alt="">&nbsp; <span>Help</span></li>
+            <li><img src="settings.png" alt="">&nbsp; <span>Settings</span></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="search">
+                    <input type="text" placeholder="Search..">
+                    <button type="submit"><img src="search.png" alt=""></button>
+                </div>
+                <div class="user">
+                    <a href="#" class="btn">Add New</a>
+                    <img src="notifications.png" alt="">
+                    <div class="img-case">
+                        <img onclick="openCard()" src="user.png" alt="">
+                        <br>
+                        <div class="card" id="card_1" style="display:none;">
+                            <button onclick="viewProfile()">View Profile</button>
+                            <button onclick="logout()">Logout</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="box">
+                        <h1>Students</h1>
+                        <!-- <h3>Students</h3> -->
+                    </div>
+                    <div class="icon-case">
+                        <img src="students.png" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>Teachers</h1>
+                        <!-- <h3>Teachers</h3> -->
+                    </div>
+                    <div class="icon-case">
+                        <img src="teachers.png" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>Notices</h1>
+                        <!-- <h3>Income</h3> -->
+                    </div>
+                    <div class="icon-case">
+                        <img src="students.png" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>School</h1>
+                        <!-- <h3>School</h3> -->
+                    </div>
+                    <div class="icon-case">
+                        <img src="schools.png" alt="">
+                    </div>
+                </div>
+                <!-- <div class="card">
+                    <div class="box">
+                        <h1>Income</h1>
+                         <h3>Income</h3> -->
+                <!-- </div>
+                    <div class="icon-case">
+                        <img src="students.png" alt="">
+                    </div>
+                </div> -->
+
+                <div class="content-2">
+                    <!-- ..................................................student............................................................ -->
+                    <!-- ..................................................student............................................................ -->
+                    <div class="students">
+                        <div class="title">
+                            <h2>Student</h2>
+                            <a href="../student_list/student_list.html" class="btn">View All </a>
+                        </div>
+
+                        <table id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>Student Id</th>
+                                    <th>Name</th>
+                                    <th>Division</th>
+                                    <th>Class</th>
+                                    <th>Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody"></tbody>
+                        </table>
+
+                        <script>
+                            const data = JSON.parse(localStorage.getItem("users1") || []);
+                            let tableBody = ''
+                            data.forEach((item) => {
+                                if (item.userType == 'S') {
+                                    let html = "<tr>";
+                                    html += "<td>" + item.StudentID + "</td>";
+                                    html += "<td>" + item.Full_Name + "</td>";
+                                    html += "<td>" + item.Division + "</td>";
+                                    html += "<td>" + item.Standard + "</td>";
+                                    html += "<td>" + item.Phone_Number + "</td>";
+
+                                    html += "</tr>";
+                                    tableBody += html;
+                                }
+                            });
+                            document.getElementById("tbody").innerHTML = tableBody;
+
+                        </script>
+                    </div>
+                    <!-- ..............................................teachers....................................................... -->
+                    <div class="teacher">
+                        <div class="title">
+                            <h2>Teachers</h2>
+                        </div>
+                        <table id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Qualification</th>
+                                    <th>Email</th>
+                                    <th>Class</th>
+                                    <th>Division</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodys"></tbody>
+                        </table>
+                        <script>
+                            const datas = JSON.parse(localStorage.getItem("users1") || []);
+                            let tableBodys = ''
+                            datas.forEach((item) => {
+                                if (item.userType == 'T') {
+                                    let html = "<tr>";
+                                    html += "<td>" + item.Full_Name + "</td>";
+                                    html += "<td>" + item.Qualification + "</td>";
+                                    html += "<td>" + item.email + "</td>";
+                                    html += "<td>" + item.Class + "</td>";
+                                    html += "<td>" + item.Division + "</td>";
+
+                                    html += "</tr>";
+                                    tableBodys += html;
+                                }
+                            });
+                            document.getElementById("tbodys").innerHTML = tableBodys;
+
+                        </script>
+                        
+                    </div>
+                    <!-- ..............................................notices........................................... -->
+                    <div class="notices">
+                        <div class="title">
+                            <h2>Notices</h2>
+                            <!-- <a href="#" class="btn">View All </a> -->
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Holidays</th>
+                                <th>Activites</th>
+                                <th>Timetable</th>
+                                <th>Examination</th>
+                            </tr>
+                            <tr>
+                                <td>25-12-2023</td>
+                                <td>drawing</td>
+                                <td><a href="" class="btn">View Time-Table</a></td>
+                                <td><a href="" class="btn">View Examination-Time-Table</a></td>
+                            </tr>
+                            <tr>
+                                <td>25-12-2023
+                                </td>
+                                <td>crafting</td>
+                                <td></td>
+                                <td></td>
+                              
+                            </tr>
+                            <tr>
+                                <td>25-12-2023</td>
+                                <td>dancing</td>
+                                <td></td>
+                                <td></td>
+                              
+                            </tr>
+                            <tr>
+                                <td>25-12-2023</td>
+                                <td>singing</td>
+                                <td></td>
+                                <td></td>
+                                <!-- <td><a href="#" class="btn">View Time-Table</a></td>
+                            <td><a href="#" class="btn">View Examination-Time-Table</a></td> -->
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- ..........................................COMPLAINTS........................................ -->
+                    <!-- <div class="complaints">
+                        <div class="title">
+                            <h2>COMPLAINTS</h2>
+                            <a href="#" class="btn">View All </a>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>School</th>
+                                <th>Amount</th>
+                                <th>Option</th>
+                            </tr>
+                            <tr>
+                                <td>Jhon Doe</td>
+                                <td>St. James College</td>
+                                <td>$120</td>
+                                <td><a href="#" class="btn">View</a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Jhon Doe</td>
+                                <td>St. James College</td>
+                                <td>$120</td>
+                                <td><a href="#" class="btn">View</a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Jhon Doe</td>
+                                <td>St. James College</td>
+                                <td>$120</td>
+                                <td><a href="#" class="btn">View</a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Jhon Doe</td>
+                                <td>St. James College</td>
+                                <td>$120</td>
+                                <td><a href="#" class="btn">View</a></td>
+
+                            </tr>
+
+                        </table>
+                    </div> -->
+
+                    <!-- .....................notices............................... -->
+                    <!-- .................................................... -->
+
+                    <!-- <div class="new-students">
+                        <div class="title">
+                            <h2>New Students</h2>
+                            <a href="#" class="btn">View All </a>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Profile</th>
+                                <th>Name</th>
+                                <th>option</th>
+                            </tr>
+                            <tr>
+                                <td><img src="user(1).png" alt=""></td>
+                                <td>Jhon Steve Deo</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img src="user(1).png" alt=""></td>
+                                <td>Jhon Steve Deo</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img src="user(1).png" alt=""></td>
+                                <td>Jhon Steve Deo</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img src="user(1).png" alt=""></td>
+                                <td>Jhon Steve Deo</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+                        </table>
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

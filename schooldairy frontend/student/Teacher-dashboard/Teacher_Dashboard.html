@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Teacher_Dashboard.css">
+    <script src="https://kit.fontawesome.com/64af1aa0dd.js" crossorigin="anonymous"></script>
+    <title>Teacher Panel</title>
+    <!-- <script>
+        document.getElementById("class").innerHTML=localStorage.getItem("CLASS");
+    </script> -->
+</head>
+
+<body>
+    <div class="sidebar-menu">
+        <div class="brand-name">
+            <h2>Teacher Dashboard</h2s>
+        </div>
+        <ul>
+
+            <!-- <li><img src="dashboard (2).png" alt="">&nbsp; <a href="../Admin-dashboard/Admin_Dashboard.html">Dashboard</a> </li> -->
+            <!-- <li><img src="reading-book (1).png" alt="">&nbsp; <a href="../Student-dashboard/student-dashboard.html">Student</a> -->
+            <li><img src="teacher2.png" alt="">&nbsp; <span>Teacher</span> </li>
+            <!-- <li><img src="school.png" alt="">&nbsp; <span>School</span></li>
+            <li><img src="payment.png" alt="">&nbsp; <span>Income</span></li> -->
+            <li><img src="help-web-button.png" alt="">&nbsp; <span>Help</span></li>
+            <!-- <li><img src="settings.png" alt="">&nbsp; <span>Settings</span></li> -->
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="search">
+                    <!-- <input type="text" placeholder="Search.."> -->
+                    <!-- <button type="submit"><img src="search.png" alt=""></button> -->
+                </div>
+                <div class="user">
+                    <!-- <a href="#" class="btn">Add New</a> -->
+                    <img src="notifications.png" alt="">
+                    <div class="input">
+                        <h1>Profile</h1>
+                    </div>
+                    <div class="img-case">
+                        <img onclick="openCard()" src="user.png" alt="">
+                        <br>
+                        <div class="card" id="card_1" style="display:none;">
+                            <button onclick="viewProfile()">View Profile</button>
+                            <button onclick="logout()">Logout</button>
+                        </div>
+                        <script>function openCard() {
+                                const card = document.getElementById('card_1');
+                                card.style.display = 'block';
+                            }
+                            function logout() {
+                                window.location.href = '../Login/login.html'
+                            }
+                            function viewProfile() {
+                                window.location.href = '../html-code-for-student-profile/teachercard.html'
+                            }</script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <a href="../html-code-for-student-profile/teachercard.html"></a> -->
+        <div class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="box">
+                        <h1>Class</h1>
+                        <!-- <h3>Class</h3> -->
+                    </div>
+                    <div class="icon-case">
+                        <img src="students.png" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>Notices</h1>
+                        <!-- <h3>Notices</h3> -->
+                    </div>
+                    <div class="icon-case">
+                        <img src="teachers.png" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>Homework</h1>
+                        <!-- <h3>Homework</h3> -->
+                    </div>
+                    <div class="icon-case">
+                        <img src="schools.png" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1 onclick="viewHolidayList()">Holiday List</h1>
+                        <script> function viewHolidayList(){
+                            window.location.href='../Holidays/holidays.html'
+                          }</script>
+                        <!-- <h3>Complaints</h3> -->
+                    </div>
+                    <div class="icon-case">
+                        <img src="students.png" alt="">
+                    </div>
+                </div>
+
+                <div class="content-2">
+
+
+                    <!-- ..............................................notices.............................................................. -->
+
+
+                    <div class="notices">
+                        <div class="title">
+                            <h1>NOTICES TABLE</h1>
+                            <!-- <a href="#" class="btn">View All </a> -->
+                        </div>
+                        <table id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Division</th>
+                                    <th>Description</th>
+                                    <th>ADD</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="tbodys"></tbody>
+                        </table>
+                        <script>
+                            const datas = JSON.parse(localStorage.getItem("users1") || []);
+                            let tableBodys = ''
+                            datas.forEach((item) => {
+                                if (item.userType == 'T') {
+                                    let html = "<tr>";
+                                    html += "<td>" + item.Class + "</td>";
+                                    html += "<td>" + item.Division + "</td>";
+                                    html += "<td>"+"<input type='textarea'></td>"   ;
+                                    html += "<td>"+"<button>ADD</button></td>"   ; 
+
+                                    html += "</tr>";
+                                    tableBodys += html;
+                                }
+                            });
+                            document.getElementById("tbodys").innerHTML = tableBodys;
+
+                        </script>
+                    </div>
+
+                    <!-- ...................................................homework................................................................. -->
+                    <div class="homework">
+                        <div class="title">
+                            <h1>HOMEWORK TABLE</h1>
+                            <!-- <a href="#" class="btn">View All </a> -->
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Class &nbsp;</th>
+                                <th>Division&nbsp;</th>
+                                <!-- <th>Student ID&nbsp;</th> -->
+                                <th>Homework Description&nbsp;</th>
+                                <th>ADD</th>
+                                <!-- <th>Extra Curricular Activities&nbsp;</th>  -->
+                            </tr>
+
+                            <tbody id="tbody1"></tbody>
+                        </table>
+                        <script>
+                            const data1 = JSON.parse(localStorage.getItem("users1") || []);
+                            let tableBody1 = ''
+                            datas.forEach((item) => {
+                                if (item.userType == 'T') {
+                                    let html = "<tr>";
+                                       
+                                    html += "<td>" + item.Class + "</td>";
+                                    html += "<td>" + item.Division + "</td>";
+                                    // html += "<td>" + item.StudentID + "</td>";
+                                    html += "<td>"+"<input type='textarea'></td>"   ;
+                                    html += "<td>"+"<button>ADD</button></td>"   ; 
+                                    html += "</tr>";
+                                    tableBody1 += html;
+                                }
+                            });
+                            document.getElementById("tbody1").innerHTML = tableBody1;
+
+                        </script>
+
+                          
+
+                        
+                    </div>
+                    <!-- ........................................complaints............................................. -->
+                    <div class="complaints">
+                        <div class="title">
+                            <h1>COMPLAINTS TABLE</h1>
+                            <!-- <a href="#" class="btn">View All </a> -->
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Class &nbsp;</th>
+                                <th>Division&nbsp;</th>
+                                <th>Student ID&nbsp;</th>
+                                <th>Complaint Description&nbsp;</th>
+                                <th>ADD</th>
+                            </tr>
+                            <tbody id="tbody2"></tbody>
+                        </table>
+                        <script>
+                            const data2 = JSON.parse(localStorage.getItem("users1") || []);
+                            let tableBody2 = ''
+                            datas.forEach((item) => {
+                                if (item.userType == 'T') {
+                                    let html = "<tr>";
+                                       
+                                    html += "<td>" + item.Class + "</td>";
+                                    html += "<td>" + item.Division + "</td>";
+                                    html += "<td>" + item.StudentID + "</td>";
+                                    html += "<td>"+"<input type='textarea'></td>"   ;
+                                    html += "<td>"+"<button>ADD</button></td>"   ; 
+
+                                    html += "</tr>";
+                                    tableBody2 += html;
+                                }
+                            });
+                            document.getElementById("tbody2").innerHTML = tableBody2;
+
+                        </script>
+
+                    </div>
+
+                    <!-- ........................................................................................................ -->
+                    <!-- <div class="new-students">
+                        <div class="title">
+                            <h2>New Students</h2>
+                            <a href="#" class="btn">View All </a>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Profile</th>
+                                <th>Name</th>
+                                <th>option</th>
+                            </tr>
+                            <tr>
+                                <td><img src="user(1).png" alt=""></td>
+                                <td>Jhon Steve Deo</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img src="user(1).png" alt=""></td>
+                                <td>Jhon Steve Deo</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img src="user(1).png" alt=""></td>
+                                <td>Jhon Steve Deo</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img src="user(1).png" alt=""></td>
+                                <td>Jhon Steve Deo</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+                        </table>
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

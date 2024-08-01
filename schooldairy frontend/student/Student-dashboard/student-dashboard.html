@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href="student-dashboard.css">
+    <title>Student Panel</title>
+    </head>
+    <body>
+        <script src="student_dashboard.js"></script>
+        <div class="sidebar-menu">
+            <div class="brand-name">
+                <h2>Student Dashboard</h2>
+            </div>
+            <ul>
+
+                <!-- <li><img src="dashboard (2).png" alt="">&nbsp;<a href="../Admin-dashboard/Admin_Dashboard.html">Dashboard</a> </li> -->
+                <li><img src="reading-book (1).png" alt="">&nbsp; <a href="../Student-dashboard/student-dashboard.html">Dashboard</a> </li>
+                <!-- <li><img src="teacher2.png" alt="">&nbsp; <a href="../Teacher-dashboard/Teacher_Dashboard.html">Teacher</a> </li> -->
+                <!-- <li><img src="school.png" alt="">&nbsp;  <span>School</span></li>
+                <li><img src="payment.png" alt="">&nbsp;  <span>Income</span></li> -->
+                <li><img src="help-web-button.png" alt="">&nbsp;  <span>Help</span></li>
+                <!-- <li><img src="settings.png" alt="">&nbsp;  <span>Settings</span></li> -->
+            </ul>  
+        </div>
+        <div class="container">      
+            <div class="header">
+                <div class="nav">
+                    <div class="search">
+                        <!-- <input type="text" placeholder="Search.."> -->
+                        <!-- <button type="submit"><img src="search.png" alt=""></button> -->
+                    </div>
+                    <div class="user">
+                        <a href="#" class="btn">Add New</a>
+                        <img src="notifications.png" alt="">
+                        <div class="img-case">
+                            <img  onclick="openCard()" src="user.png" alt="">
+                            <br>
+                            <div class="card" id="card_1" style="display:none;">
+                                <button onclick="viewProfile()">View Profile</button>
+                                <button onclick="logout()">Logout</button>
+                              </div>
+                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="content">
+        <div class="cards">
+            <div class="card">
+                <div class="box">
+                    <h1>Attendence</h1>
+                    <!-- <h3>Students</h3> -->
+                </div>
+                <div class="icon-case">
+                  <img src="students.png" alt="">  
+                </div>
+            </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>Notices</h1>
+                        <!-- <h3>Teachers</h3> -->
+                    </div>
+                    <div class="icon-case">
+                      <img src="teachers.png" alt="">  
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>Homework</h1>
+                        <!-- <h3>School</h3> -->
+                    </div>
+                    <div class="icon-case">
+                      <img src="schools.png" alt="">  
+                    </div>
+                </div>  
+                 <div class="card">
+                    <div class="box">
+                        <h1 onclick="viewHolidayList()">Holiday List</h1>
+                        <!-- <h3>Income</h3> -->
+                    </div>
+                    <div class="icon-case">
+                      <img src="students.png" alt="">  
+                    </div>
+                </div>
+        
+        <div class="content-2">
+                <!-- ..........................................ATTENDENCE................................................. -->
+                <div class="attendence">
+                    <div class="title">
+                        <h1>ATTENDENCE TABLE</h1>
+                        <!-- <a href="#" class="btn">View All </a> -->
+                    </div>
+                     <table>
+                        <tr>
+                            <th>Date</th>
+                            <th>Day</th>
+                            <th>Attendence</th>
+                            <!-- <th></th> -->
+                        </tr>
+                        <tr>
+                            <td><input type="date"></td>
+                            <td>monday</td>
+                            <td><span>P</span><input type="checkbox"checked> &nbsp;  &nbsp;  &nbsp;<span>A</span><input type="checkbox" value="false"></td>
+                            <td></td>
+
+                            <!-- <td><a href="#" class="btn">View</a></td> -->
+    
+                        </tr>
+                        <tr>
+                            <td><input type="date"></td>
+                            <td>Tuesday</td>
+                            <td><span>P</span><input type="checkbox"> &nbsp;  &nbsp;  &nbsp;<span>A</span><input type="checkbox" checked></td>
+                            <td></td>
+                            <!-- <td><a href="#" class="btn">View</a></td> -->
+    
+                        </tr>
+                        <tr>
+                            <td><input type="date"></td>
+                            <td>wednesday</td>
+                            <td><span>P</span><input type="checkbox"> &nbsp;  &nbsp;  &nbsp;<span>A</span><input type="checkbox" checked></td>
+                            <td></td>
+                            <!-- <td><a href="#" class="btn">View</a></td> -->
+    
+                        </tr>
+                        <tr>
+                            <td><input type="date"></td>
+                            <td>thursday</td>
+                            <td><span>P</span><input type="checkbox"checked> &nbsp;  &nbsp;  &nbsp;<span>A</span><input type="checkbox" ></td>
+                            
+                            <!-- <td><a href="#" class="btn">View</a></td> -->
+    
+                        </tr>
+    
+                     </table>
+                    </div>
+                    <!-- ..............................................NOTICES....................................................... -->
+                    <div class="notices">
+                        <div class="title">
+                            <h1>NOTICES TABLE</h1>
+                            <!-- <a href="#" class="btn">View All </a> -->
+                        </div>
+                         <table>
+                            <tr>
+                                <th>Sr.no</th>
+                                 <!-- <th>Holidays &nbsp;</th> -->
+                                <th>Complaints&nbsp;</th>
+                                <!-- <th>Notices&nbsp;</th> -->
+                                <th>Activities&nbsp;</th> 
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Late</td>
+                                <td>Crafting</td>
+         
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Uniform is not properly</td>
+                                <td>Dancing</td>
+        
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Homework not done</td>
+                                <td>Singing</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Misbehave</td>
+                                <td>Drawing</td>        
+                            </tr>
+        
+                         </table>
+                        </div>
+                        <!-- ..............................................HOMEWORK........................................... -->
+                        <div class="homework">
+                            <div class="title">
+                                <h1>HOMEWORK TABLE</h1>
+                                <!-- <a href="#" class="btn">View All </a> -->
+                            </div>
+                             <table>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Subject</th>
+                                    <th>Homework description</th>
+                                    <th>Done or Not</th>
+                                    <!-- <th>View</th> -->
+                                    <!-- <th></th> -->
+                                </tr>
+                                <tr>
+                                    <td>02-05-2023</td>
+                                    <td>English</td>
+                                    <td>Grammar Tenses</td>
+                            <td><span>P</span><input type="checkbox"checked> &nbsp;  &nbsp;  &nbsp;<span>A</span><input type="checkbox" value="false"></td>
+            
+                                </tr>
+                                <tr>
+                                    <td>03-05-2023</td>
+                                    <td>Maths</td>
+                                    <td>Ex:2.1,2.2</td>
+                            <td><span>P</span><input type="checkbox"false> &nbsp;  &nbsp;  &nbsp;<span>A</span><input type="checkbox" value="checked" checked></td>
+            
+                                </tr>
+                                <tr>
+                                    <td>04-05-2023</td>
+                                    <td>Science</td>
+                                    <td>Learn Periodic table Elements</td>
+                            <td><span>P</span><input type="checkbox"checked> &nbsp;  &nbsp;  &nbsp;<span>A</span><input type="checkbox" value="false"></td>
+            
+                                </tr>
+                                <tr>
+                                    <td>05-05-2023</td>
+                                    <td>English</td>
+                                    <td>Vowels</td>
+                            <td><span>P</span><input type="checkbox"checked> &nbsp;  &nbsp;  &nbsp;<span>A</span><input type="checkbox" value="false"></td>
+            
+                                </tr>
+            
+                             </table>
+                            </div>
+                            <!-- ..........................................COMPLAINTS........................................ -->
+                            <!-- <div class="complaints">
+                                <div class="title">
+                                    <h2>COMPLAINTS</h2>
+                                    <a href="#" class="btn">View All </a>
+                                </div>
+                                 <table>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>School</th>
+                                        <th>Amount</th>
+                                        <th>Option</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Jhon Doe</td>
+                                        <td>St. James College</td>
+                                        <td>$120</td>
+                                        <td><a href="#" class="btn">View</a></td>
+                
+                                    </tr>
+                                    <tr>
+                                        <td>Jhon Doe</td>
+                                        <td>St. James College</td>
+                                        <td>$120</td>
+                                        <td><a href="#" class="btn">View</a></td>
+                
+                                    </tr>
+                                    <tr>
+                                        <td>Jhon Doe</td>
+                                        <td>St. James College</td>
+                                        <td>$120</td>
+                                        <td><a href="#" class="btn">View</a></td>
+                
+                                    </tr>
+                                    <tr>
+                                        <td>Jhon Doe</td>
+                                        <td>St. James College</td>
+                                        <td>$120</td>
+                                        <td><a href="#" class="btn">View</a></td>
+                
+                                    </tr>
+                
+                                 </table>
+                                </div> -->
+                                <!-- .............................................................................................. -->
+                    <!-- <div class="new-students">
+                <div class="title">
+                    <h2>New Students</h2>
+                    <a href="#" class="btn">View All </a>
+                </div>
+                <table>
+                    <tr>
+                        <th>Profile</th>
+                        <th>Name</th>
+                        <th>option</th>
+                    </tr>
+                    <tr>
+                        <td><img src="user(1).png" alt=""></td>
+                        <td>Jhon Steve Deo</td>
+                        <td><img src="info.png" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td><img src="user(1).png" alt=""></td>
+                        <td>Jhon Steve Deo</td>
+                        <td><img src="info.png" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td><img src="user(1).png" alt=""></td>
+                        <td>Jhon Steve Deo</td>
+                        <td><img src="info.png" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td><img src="user(1).png" alt=""></td>
+                        <td>Jhon Steve Deo</td>
+                        <td><img src="info.png" alt=""></td>
+                    </tr>
+                </table>
+            </div> -->
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    </body>
+</html>
+
